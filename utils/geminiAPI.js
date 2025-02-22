@@ -20,7 +20,6 @@ export const getGeminiData = async (prompt) => {
 
         return structuredData;
     } catch (error) {
-        console.log(error)
         throw new Error("Failed to fetch structured data from Gemini API");
     }
 };

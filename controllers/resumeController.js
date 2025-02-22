@@ -110,7 +110,6 @@ const processResume = async (req, res) => {
 
 const searchResume = async (req, res) => {
     const { name } = req.body;
-    console.log("Search Query:", name);
 
     try {
         if (!name) {
