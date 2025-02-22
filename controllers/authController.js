@@ -11,7 +11,7 @@ const login = (req, res) => {
 
     if (username === validUser.username && password === validUser.password) {
         const token = generateToken(username);
-        res.cookie('token', token, { httpOnly: true, sameSite: 'none', secure: false,
+        res.cookie('token', token, { httpOnly: true, sameSite: 'none', secure: true,
             maxAge: 900000});
         return res.status(200).json({ JWT: token });
     } else {
