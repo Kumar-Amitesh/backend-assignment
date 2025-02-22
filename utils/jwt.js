@@ -1,3 +1,4 @@
+// description: jwt token generator and verifier
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 

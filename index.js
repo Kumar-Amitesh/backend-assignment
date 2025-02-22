@@ -1,3 +1,4 @@
+// Description: This file is the entry point of the server. It sets up the server and connects to the database.
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -14,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors(
     {
-        origin: 'http://localhost:5000',
+        origin: '*',
         credentials: true,
     }
 ));

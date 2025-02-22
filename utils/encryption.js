@@ -1,3 +1,4 @@
+// Description: Encryption utility functions.
 import CryptoJS from "crypto-js";
 
 const encryptData = (text) => {

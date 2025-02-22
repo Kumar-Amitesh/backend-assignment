@@ -1,38 +1,21 @@
-import axios from "axios";
+// Description: This file contains the code to fetch structured data from the Gemini API.
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
 dotenv.config();
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
 export const getGeminiData = async (prompt) => {
     try {
-        // const response = await axios.post(
-        //     "https://api.openai.com/v1/chat/completions",
-        //     {
-        //         model: "gemini-1",
-        //         prompt: prompt,
-        //         // messages: [{ role: "system", content: `Extract structured resume data from this text:\n\n${resumeText}` }],
-        //     },
-        //     { headers: 
-        //         { 
-        //             Authorization: `Bearer ${process.env.GEMINI_API_KEY}`
-        //         } 
-        //     }
-        // );
 
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-        // const prompt = prompt;
-
         const response = await model.generateContent(prompt);
 
-        let generatedText = response.response.text(); // Correctly access generated content
+        let generatedText = response.response.text(); 
 
         // Remove markdown formatting (```json ... ```)
         generatedText = generatedText.replace(/```json|```/g, "").trim();
 
-        // Parse the cleaned JSON string
         const structuredData = JSON.parse(generatedText);
 
         return structuredData;

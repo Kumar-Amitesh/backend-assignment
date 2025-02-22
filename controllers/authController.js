@@ -1,3 +1,4 @@
+// Desc: Controller for handling login requests
 import {generateToken} from '../utils/jwt.js';
 
 const login = (req, res) => {

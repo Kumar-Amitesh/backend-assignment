@@ -1,3 +1,4 @@
+// Purpose: Model for the applicants collection in the database.
 import mongoose from "mongoose";
 
 const applicantSchema = new mongoose.Schema({
